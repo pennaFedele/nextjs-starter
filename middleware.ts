@@ -12,6 +12,11 @@ export const config = {
 export function middleware(req: NextRequest) {
   // Ignore paths with "icon" or "chrome"
   if (req.nextUrl.pathname.indexOf('icon') > -1 || req.nextUrl.pathname.indexOf('chrome') > -1) return NextResponse.next()
+
+  const pathname = req.nextUrl.pathname
+  if (pathname === '/prenota' || languages.some(l => pathname === `/${l}/prenota`)) {
+    return NextResponse.redirect('https://alterrazzo.plateform.app')
+  }
   
   let lng
   // Try to get language from cookie
