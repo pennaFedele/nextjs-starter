@@ -1,5 +1,5 @@
 "use server";
-import { ExtendedAreaCompetenza } from '@/lib/utils';
+import { ExtendedAreaCompetenza } from '@/lib/types';
 import { LRUCache } from 'lru-cache';
 
 const CACHE_TTL = 1000 * 60 * 5; 
