@@ -1,4 +1,4 @@
-import { Tag } from "@/generated/prisma";
+import { Tag } from "@/app/generated/prisma";
 import { ExtendedPietanza } from "@/lib/types";
 import { Card, Column, Media, Row, Text, Line, Icon, Tag as OnceTag } from "@/once-ui/components";
 
