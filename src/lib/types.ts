@@ -1,4 +1,4 @@
-import { AreaCompetenza, Categoria, Pietanza, Tag } from "@/generated/prisma";
+import { AreaCompetenza, Categoria, Pietanza, Tag } from "@/app/generated/prisma";
 
 interface ExtendedTag extends Tag{}
 
