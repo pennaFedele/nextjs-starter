@@ -73,4 +73,4 @@ Once UI is an indie project. [Sponsor us](https://github.com/sponsors/once-ui-sy
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
