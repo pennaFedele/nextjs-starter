@@ -4,11 +4,13 @@ import "@/once-ui/tokens/index.scss";
 import classNames from "classnames";
 
 import { baseURL, style, meta, font, effects } from "@/app/resources/once-ui.config";
-import { Background, Column, Flex, ToastProvider, ThemeProvider } from "@/once-ui/components";
+import { Background, Column, Flex, ToastProvider, ThemeProvider, Row } from "@/once-ui/components";
 
 import { opacity, SpacingToken } from "@/once-ui/types";
 import { Meta, Schema } from "@/once-ui/modules";
 import { chart } from "./resources/data.config";
+
+import Header from "@/components/header";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -126,6 +128,9 @@ export default function RootLayout({
                 color: effects.lines.color,
               }}
             />
+            <Row margin="8">
+            <Header />
+            </Row>
             {children}
           </Column>
         </ToastProvider>

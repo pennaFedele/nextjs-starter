@@ -1,0 +1,27 @@
+{
+  "menu": "Menu",
+  "allergeni": "Allergeni",
+  "visiona": "Guarda il menu",
+  "light": "Chiaro",
+  "dark": "Scuro",
+  "system": "Di sistema",
+  "Carrello": "Carrello",
+  "carrello_contenuto": "Contenuto del carrello",
+  "no-prodotti": "Nessun prodotto",
+  "cancella": "Cancella",
+  "cancella-tutto": "Cancella tutto",
+  "continua": "Continua",
+  "cerca": "Cerca",
+  "cs_testo": "Provalo con:",
+  "welcome": "Benvenuti",
+  "modeToggle": {
+    "toggleTheme": "Cambia tema",
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "system": "Di sistema",
+    "language": "English"
+  },
+  "cerca-pietanze": "Cerca pietanze...",
+  "seleziona-menu": "Seleziona un menu",
+  "dettagli": "Dettagli"
+}

@@ -1,0 +1,25 @@
+{
+  "allergeni": {
+    "title": "Allergens",
+    "description": "In each dish, there is an \"allergens\" entry or a tag with a number and/or short name that refers to this list:",
+    "listTitle": "ALLERGEN CATEGORIES LIST",
+    "regulation": "Annex II, Regulation (EU) No 1169/2011",
+    "items": [
+      "Cereals containing gluten",
+      "Crustaceans and crustacean products",
+      "Eggs and egg products",
+      "Fish and fish products",
+      "Peanuts and peanut products",
+      "Soybeans and soybean products",
+      "Milk and milk products (including lactose), except: a) whey used for making alcoholic distillates, including ethyl alcohol of agricultural origin; b) lactitol",
+      "Nuts and their products, except for nuts used for making alcoholic distillates, including ethyl alcohol of agricultural origin",
+      "Celery and celery products",
+      "Mustard and mustard products",
+      "Sesame seeds and sesame seed products",
+      "Sulfur dioxide and sulfites",
+      "Lupin and lupin products",
+      "Mollusks and mollusk products"
+    ],
+    "documentLink": "Visit the full document"
+  }
+}

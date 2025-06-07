@@ -1,0 +1,11 @@
+{
+  "cart": {
+    "title": "Preferiti",
+    "description": "Metti i tuoi prodotti preferiti per ordinarli più velocemente",
+    "empty": "Non ci sono prodotti",
+    "clear": "Cancella tutto",
+    "continue": "Continua",
+    "toastTitle": "Preferiti cancellati",
+    "toastVariant": "success"
+  }
+}

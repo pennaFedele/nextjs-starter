@@ -1,12 +1,29 @@
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.once-ui.com";
+const baseURL = "https://app.alterrazzo.it";
 
 // Import and set font for each variant
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const primaryFont = Geist({
+import { Lora } from "next/font/google";
+import { Poppins } from "next/font/google";    
+
+
+const primaryFont = Poppins({
   variable: "--font-primary",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+});
+
+const secondaryFont = Lora({
+  variable: "--font-secondary",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const tertiaryFont = Geist({
+  variable: "--font-tertiary",
   subsets: ["latin"],
   display: "swap",
 });
@@ -19,8 +36,8 @@ const monoFont = Geist_Mono({
 
 const font = {
   primary: primaryFont,
-  secondary: primaryFont,
-  tertiary: primaryFont,
+  secondary: secondaryFont,
+  tertiary: tertiaryFont,
   code: monoFont,
 };
 
@@ -28,8 +45,8 @@ const font = {
 const style = {
   theme: "dark", // dark | light - not needed when using ThemeProvider
   neutral: "gray", // sand | gray | slate
-  brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  brand: "green", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  accent: "orange", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast | inverse
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
@@ -83,13 +100,13 @@ const effects = {
 const meta = {
   home: {
     path: "/",
-    title: "Once UI for Next.js",
+    title: "Ristorante Al Terrazzo",
     description:
-      "An open-source design system and component library for Next.js that emphasizes easy styling and accessibility in UI development.",
+      "Ristorante e Pizzeria Al Terrazzo - Gambarie di Santo Stefano in Aspromonte",
     image: "/og/home.jpg",
-    canonical: "https://once-ui.com",
+    canonical: "https://app.alterrazzo.it",
     robots: "index,follow",
-    alternates: [{ href: "https://once-ui.com", hrefLang: "en" }],
+    alternates: [{ href: "https://app.alterrazzo.it", hrefLang: "it" }],
   },
   // add more routes and reference them in page.tsx
 };
@@ -97,17 +114,16 @@ const meta = {
 // default schema data
 const schema = {
   logo: "",
-  type: "Organization",
-  name: "Once UI",
+  type: "Ristorante",
+  name: "Al Terrazzo",
   description: meta.home.description,
-  email: "lorant@once-ui.com",
+  email: "info@alterrazzo.it",
 };
 
 // social links
 const social = {
-  twitter: "https://www.twitter.com/_onceui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  instagram: "https://www.instagram.com/alterrazzo",
+  facebook: "https://www.facebook.com/alterrazzo",
 };
 
 export { baseURL, font, style, meta, schema, social, effects };

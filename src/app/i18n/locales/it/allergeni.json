@@ -1,0 +1,25 @@
+{
+  "allergeni": {
+    "title": "Allergeni",
+    "description": "In ogni pietanza, è presente la voce \"allergeni\" o un tag con numero e/o nome corto che fa riferimento a questo elenco:",
+    "listTitle": "ELENCO CATEGORIE ALLERGENI",
+    "regulation": "Allegato II, Regolamento (UE) 1169/2011",
+    "items": [
+      "Cereali contenenti glutine",
+      "Crostacei e prodotti a base di crostacei",
+      "Uova e prodotti a base di uova",
+      "Pesce e prodotti a base di pesce",
+      "Arachidi e prodotti a base di arachidi",
+      "Soia e prodotti a base di soia",
+      "Latte e prodotti a base di latte (incluso lattosio), tranne: a) siero di latte utilizzato per la fabbricazione di distillati alcolici, incluso l’alcol etilico di origine agricola; b) lattiolo",
+      "Frutta a guscio e i loro prodotti, tranne per la frutta a guscio utilizzata per la fabbricazione di distillati alcolici, incluso l’alcol etilico di origine agricola",
+      "Sedano e prodotti a base di sedano",
+      "Senape e prodotti a base di senape",
+      "Semi di sesamo e prodotti a base di semi di sesamo",
+      "Anidride solforosa e solfiti",
+      "Lupini e prodotti a base di lupini",
+      "Molluschi e prodotti a base di molluschi"
+    ],
+    "documentLink": "Visita il documento completo"
+  }
+}

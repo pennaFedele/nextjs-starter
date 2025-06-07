@@ -1,0 +1,27 @@
+{
+  "menu": "Menu",
+  "allergeni": "Allergens",
+  "visiona": "See the menu",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
+  "Carrello": "Cart",
+  "carrello_contenuto": "This is just a reminder, to order ask the waiter",
+  "no-prodotti": "No products",
+  "cancella": "Cancel",
+  "cancella-tutto": "Empty cart",
+  "continua": "Continue",
+  "cerca": "Search",
+  "cs_testo": "Try it with:",
+  "welcome": "Welcome",
+  "modeToggle": {
+    "toggleTheme": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "language": "Italiano"
+  },
+  "cerca-pietanze": "Search...",
+  "seleziona-menu": "Select a menu",
+  "dettagli": "Details"
+}

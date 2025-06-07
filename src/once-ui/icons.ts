@@ -30,7 +30,11 @@ import {
   HiOutlinePlus,
   HiOutlineCalendar,
   HiOutlineDocumentDuplicate,
+  HiHome,
 } from "react-icons/hi2";
+
+import { PiGrainsLight } from "react-icons/pi";
+
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
@@ -62,6 +66,8 @@ export const iconLibrary: Record<string, IconType> = {
   security: HiOutlineShieldCheck,
   sparkle: HiOutlineSparkles,
   computer: HiOutlineComputerDesktop,
+  home: HiHome,
+  allergens: PiGrainsLight,
 };
 
 export type IconLibrary = typeof iconLibrary;

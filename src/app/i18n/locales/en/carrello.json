@@ -1,0 +1,11 @@
+{
+  "cart": {
+    "title": "Favorites",
+    "description": "This is just a reminder, to order ask the waiter",
+    "empty": "There are no products",
+    "clear": "Clear all",
+    "continue": "Continue",
+    "toastTitle": "List cleared",
+    "toastVariant": "success"
+  }
+}

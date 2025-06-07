@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/app/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model users {
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  name        String?
+  username    String       @unique
+  password    String
+  bearerToken String?
+  ipAddress   String?
+  mongoAdress String?
+  ristorante  Ristorante[] @relation("UserRistorante")
+}
+
+model Ristorante {
+  id     String  @id @default(cuid())
+  name   String?
+  via    String?
+  civico String?
+  citta  String?
+  vat    String?
+  user   users[] @relation("UserRistorante")
+}
+
+model AreaCompetenza {
+  id                 Int          @id
+  descrizione        String
+  dataCreaz          DateTime
+  dataAgg            DateTime
+  isAttiva           Boolean
+  note               String       @default("")
+  ordine             Int          @default(99)
+  descrizioneInglese String?
+  noteInglese        String?
+  isMenuFisso        Boolean
+  orari              OrarioArea[] @relation("AreaOrari")
+  categorie          Categoria[]  @relation("CategorieAreeCompetenza")
+}
+
+model OrarioArea {
+  id     Int            @id @default(autoincrement())
+  areaId Int
+  giorno String
+  start  DateTime
+  end    DateTime
+  area   AreaCompetenza @relation("AreaOrari", fields: [areaId], references: [id])
+}
+
+model Categoria {
+  id                    Int              @id
+  descrizioneLingua1    String
+  isAttiva              Boolean
+  isVisibileSuSelfOrder Boolean
+  ordineTastoPc         Int              @default(100)
+  dataCreaz             DateTime
+  dataAgg               DateTime
+  descrizioneLingua2    String?
+  pietanze              Pietanza[]
+  areeCompetenza        AreaCompetenza[] @relation("CategorieAreeCompetenza")
+}
+
+model Pietanza {
+  id                    Int            @id
+  idCategoriaPietanza   Int
+  descrizioneLingua1    String
+  prezzo                Float
+  isAttiva              Boolean
+  isVisibileSuSelfOrder Boolean
+  ordineTastoPc         Int            @default(100)
+  dataCreaz             DateTime
+  dataAgg               DateTime
+  note                  String?
+  image                 String?
+  descrizioneLingua2    String?
+  noteLingua2           String?
+  correlataBy           CrossSelling[] @relation("correlataBy")
+  correlata             CrossSelling[] @relation("correlata")
+  categoria             Categoria      @relation(fields: [idCategoriaPietanza], references: [id])
+  tag                   Tag[]          @relation("PietanzaToTag")
+}
+
+model CrossSelling {
+  correlataId   Int
+  correlataById Int
+  correlataBy   Pietanza @relation("correlataBy", fields: [correlataById], references: [id])
+  correlata     Pietanza @relation("correlata", fields: [correlataId], references: [id])
+
+  @@id([correlataById, correlataId])
+}
+
+model Tag {
+  id          Int        @id
+  descrizione String
+  colore      String
+  isAllergene Boolean    @default(false)
+  pietanze    Pietanza[] @relation("PietanzaToTag")
+}
+
+model Prenotazione {
+  id                 String             @id @default(cuid())
+  ristoranteId       String
+  nomeCliente        String
+  cognomeCliente     String?
+  emailCliente       String
+  telefonoCliente    String?
+  numeroPersone      Int
+  numeroBambini      Int?
+  data               DateTime
+  ora                DateTime
+  noteSpeciali       String?
+  noteCliente        String?
+  numeroTavolo       Int?
+  statoPrenotazione  PrenotazioneStato  @default(IN_ATTESA)
+  orarioArrivo       DateTime?
+  canalePrenotazione PrenotazioneCanale @default(WEB)
+  fontePrenotazione  String?
+  allergie           String?
+}
+
+model Piantina {
+  id                    String   @id @default(cuid())
+  ristoranteId          String
+  nome                  String
+  ordineVisualizzazione Int
+  tavoli                Tavolo[]
+}
+
+model Tavolo {
+  id           String   @id @default(cuid())
+  piantinaId   String
+  nome         String?
+  postiASedere Int
+  posizioneX   Float
+  posizioneY   Float
+  forma        String?
+  larghezza    Float
+  altezza      Float
+  rotazione    Float?
+  piantina     Piantina @relation(fields: [piantinaId], references: [id])
+}
+
+enum PrenotazioneStato {
+  IN_ATTESA
+  CONFERMATA
+  RIFIUTATA
+  NO_SHOW
+  SEDUTO
+  CANCELLATA
+}
+
+enum PrenotazioneCanale {
+  WEB
+  TELEFONO
+  APP
+  FACEBOOK
+  INSTAGRAM
+  GOOGLE
+}
