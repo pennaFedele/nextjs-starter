@@ -12,7 +12,13 @@ export default async function Home() {
         horizontal="center"
         vertical="center"
         fillWidth
-        background="surface"
+        style={{
+          minHeight: "100vh",
+          backgroundImage:
+            'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/images/hero.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         <Logo size="l" wordmark />
         <Text variant="display-strong-m" align="center">
