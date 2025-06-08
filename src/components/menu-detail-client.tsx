@@ -3,8 +3,10 @@ import { useState } from "react";
 import PietanzaCard from "./pietanza-card";
 import { ExtendedAreaCompetenza } from "@/lib/types";
 import { Column, Row, SegmentedControl, Input, Accordion, AccordionGroup } from "@/once-ui/components";
+import { useT } from "@/app/i18n/client";
 
-export default function MenuDetailClient({ menu, t }: { menu: ExtendedAreaCompetenza; t: (key: string) => string; }) {
+export default function MenuDetailClient({ menu }: { menu: ExtendedAreaCompetenza; }) {
+  const { t } = useT("translation");
   const categories = menu?.Categoria ?? [];
   const [selected, setSelected] = useState<string>("all");
   const [search, setSearch] = useState("");
