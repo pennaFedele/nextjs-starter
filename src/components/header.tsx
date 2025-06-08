@@ -1,8 +1,11 @@
 "use client";
 import { NavIcon, Flex, Text, Row, Column, Logo, ToggleButton, Line } from "@/once-ui/components";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
 export default function Header() {
+  const params = useParams();
+  const lng = typeof params?.lng === "string" ? params.lng : "it";
   const [isActive, setIsActive] = useState(false);
   
   const handleClick = () => {
@@ -32,20 +35,20 @@ export default function Header() {
         zIndex={1}
         >
           <Flex gap="4" vertical="center" textVariant="body-default-s">
-            <ToggleButton href="/"> 
+            <ToggleButton href={`/${lng}`}> 
             <Logo wordmark={false} size="m"/>
             </ToggleButton>
             <Line background="neutral-alpha-medium" vert maxHeight="24" />
             <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="allergens"
-                    href="/about"
+                    href={`/${lng}/allergeni`}
                     label="Allergeni"
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="allergens"
-                    href="/about"
+                    href={`/${lng}/allergeni`}
                     
                   />
           </Flex>
@@ -87,10 +90,10 @@ export default function Header() {
           fillWidth
           gap="8"
         >
-          <ToggleButton fillWidth horizontal="start" size="l">
+          <ToggleButton fillWidth horizontal="start" size="l" href={`/${lng}`}>
             Menu
           </ToggleButton>
-          <ToggleButton fillWidth horizontal="start" size="l">
+          <ToggleButton fillWidth horizontal="start" size="l" href={`/${lng}/allergeni`}>
             Allergeni
           </ToggleButton>
         </Column>
