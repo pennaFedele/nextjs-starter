@@ -9,10 +9,10 @@ export interface ExtendedPietanza extends Pietanza
 }
 
 interface ExtendedCategoria extends Categoria {
-  Pietanza?: ExtendedPietanza[];
+  pietanze?: ExtendedPietanza[];
 }
 
 export type ExtendedAreaCompetenza = AreaCompetenza & {
-  Categoria?: (ExtendedCategoria | null)[];
+  categorie?: (ExtendedCategoria | null)[];
 } | null;
 

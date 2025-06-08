@@ -7,7 +7,7 @@ import { useT } from "@/app/i18n/client";
 
 export default function MenuDetailClient({ menu }: { menu: ExtendedAreaCompetenza; }) {
   const { t } = useT("translation");
-  const categories = menu?.Categoria ?? [];
+  const categories = menu?.categorie ?? [];
   const [selected, setSelected] = useState<string>("all");
   const [search, setSearch] = useState("");
 
@@ -31,17 +31,15 @@ export default function MenuDetailClient({ menu }: { menu: ExtendedAreaCompetenz
         />
       </Row>
       <Row paddingY="4" paddingX="8">
-        <Input id="search" placeholder={t("cerca-pietanze") ?? ""} value={search} onChange={e => setSearch(e.target.value)} fillWidth />
+        <Input id="search" placeholder={t("cerca-pietanze") ?? ""} value={search} onChange={e => setSearch(e.target.value)}  />
       </Row>
       <Column gap="8">
         {filteredCategories.map(cat => (
-          <AccordionGroup key={cat?.id}>
             <Accordion title={cat?.descrizioneLingua1}>
-              {cat?.Pietanza?.filter(matchSearch).map(p => (
-                <PietanzaCard key={p.id} pietanza={p} />
+              {cat?.pietanze?.filter(matchSearch).map(p => (
+              <PietanzaCard key={p.id} pietanza={p} />
               ))}
             </Accordion>
-          </AccordionGroup>
         ))}
       </Column>
     </Column>

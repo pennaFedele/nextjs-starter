@@ -27,12 +27,12 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
     const area: ExtendedAreaCompetenza = await prisma.areaCompetenza.findUnique({
       where: { id: parseInt(p.id) },
       include: details === 'true' ? {
-        Categoria: {
+        categorie: {
           where: {
             AND: [
               { isAttiva: true, isVisibileSuSelfOrder: true },
               {
-                Pietanza: {
+                pietanze: {
                   some: { isAttiva: true, isVisibileSuSelfOrder: true }
                 }
               }
@@ -43,14 +43,14 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
             { descrizioneLingua1: 'asc' }
           ],
           include: details === 'true' ? {
-            Pietanza: {
+            pietanze: {
               where: { isAttiva: true, isVisibileSuSelfOrder: true },
               orderBy: [
                 { ordineTastoPc: 'asc' },
                 { descrizioneLingua1: 'asc' }
               ],
               include: {
-                Tag: true
+                tag: true
               }
             }
           } :  undefined
@@ -71,9 +71,9 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
       area.note = area.noteInglese || area.note;
 
       if (details === 'true') {
-        area.Categoria = area.Categoria?.map((categoria: any) => {
+        area.categorie = area.categorie?.map((categoria: any) => {
           categoria.descrizioneLingua1 = categoria.descrizioneLingua2 || categoria.descrizioneLingua1;
-          categoria.Pietanza = categoria.Pietanza.map((pietanza:any) => {
+          categoria.pietanze = categoria.pietanze.map((pietanza:any) => {
             pietanza.descrizioneLingua1 = pietanza.descrizioneLingua2 || pietanza.descrizioneLingua1;
             pietanza.note = pietanza.noteLingua2 || pietanza.note;
             return pietanza;
@@ -85,8 +85,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 
     // Gestione menu fisso
     if(area.isMenuFisso){
-      area.Categoria = area.Categoria?.map((categoria: any)=> {
-        categoria.Pietanza = categoria.Pietanza.map((pietanza:any) => {
+      area.categorie = area.categorie?.map((categoria: any)=> {
+        categoria.pietanze = categoria.pietanze.map((pietanza:any) => {
           pietanza.prezzo = 0;
           return pietanza;
         })
