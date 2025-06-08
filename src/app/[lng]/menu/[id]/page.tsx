@@ -4,7 +4,6 @@ import { Column, Row, Text } from "@/once-ui/components";
 
 export default async function MenuPage({ params }: { params: { id: string } }) {
     const { id } = params;
-
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/areaCompetenza/${id}?details=true`);
     const data: ExtendedAreaCompetenza = await response.json();
 

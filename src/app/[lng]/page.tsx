@@ -3,6 +3,7 @@ import { Column, Row, Text, Button } from "@/once-ui/components";
 
 export const dynamic = "force-dynamic";
 
+
 export default async function MenuHome({ params }: { params: { lng: string } }) {
   const { lng } = params;
   const { t } = await getT("translation");
