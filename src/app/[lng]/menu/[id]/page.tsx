@@ -1,6 +1,6 @@
 import { ExtendedAreaCompetenza } from "@/lib/types";
 import MenuDetailClient from "@/components/menu-detail-client";
-import { Column, Row, Text } from "@/once-ui/components";
+import { Column, Line, Row, Text } from "@/once-ui/components";
 
 export default async function MenuPage({ params }: { params: { id: string } }) {
     const { id } = await params;
@@ -8,14 +8,13 @@ export default async function MenuPage({ params }: { params: { id: string } }) {
     const data: ExtendedAreaCompetenza = await response.json();
 
     return (
-        <Column fillWidth>
-            <Row fillWidth padding="8">
-                <Text variant="heading-default-s">{data?.descrizione}</Text>
-            </Row>
-            <Row fillWidth padding="8">
-                <Text variant="body-default-s">{data?.note}</Text>
-            </Row>
-            <MenuDetailClient menu={data} />
+        <Column maxWidth="s" gap="16">
+            <Text variant="heading-default-m">{data?.descrizione}</Text>
+            <Text variant="body-default-s">{data?.note}</Text>
+            <Line />
+            <Column fillWidth flex={1} gap="8">
+                <MenuDetailClient menu={data} />
+            </Column>
         </Column>
     );
 }

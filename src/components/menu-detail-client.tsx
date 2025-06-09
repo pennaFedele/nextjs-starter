@@ -2,7 +2,7 @@
 import { useState } from "react";
 import PietanzaCard from "./pietanza-card";
 import { ExtendedAreaCompetenza } from "@/lib/types";
-import { Column, Row, SegmentedControl, Input, Accordion, AccordionGroup } from "@/once-ui/components";
+import { Column, Row, SegmentedControl, Input, Accordion, AccordionGroup, Text } from "@/once-ui/components";
 import { useT } from "@/app/i18n/client";
 
 export default function MenuDetailClient({ menu }: { menu: ExtendedAreaCompetenza; }) {
@@ -35,11 +35,12 @@ export default function MenuDetailClient({ menu }: { menu: ExtendedAreaCompetenz
       </Row>
       <Column gap="8">
         {filteredCategories.map(cat => (
-            <Accordion title={cat?.descrizioneLingua1}>
-              {cat?.pietanze?.filter(matchSearch).map(p => (
+          <>
+            <Text key={cat?.id} variant="heading-default-m">{cat?.descrizioneLingua1}</Text>
+            {cat?.pietanze?.filter(matchSearch).map(p => (
               <PietanzaCard key={p.id} pietanza={p} />
-              ))}
-            </Accordion>
+            ))}
+          </>
         ))}
       </Column>
     </Column>

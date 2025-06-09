@@ -2,7 +2,7 @@
   "name": "menu-nuovo",
   "version": "0.1",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "export": "next export",
     "build": "next build && prisma generate",
     "start": "next start",
